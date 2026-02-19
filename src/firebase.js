@@ -9,6 +9,7 @@ import {
   doc,
   updateDoc,
 } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 
 //  My Firebase config ( from Firebase Web App)
 const firebaseConfig = {
@@ -25,6 +26,12 @@ const app = initializeApp(firebaseConfig);
 
 //  Initialize Firestore
 const db = getFirestore(app);
+
+// initiate auth
+const auth = getAuth(app);
+
+// export auth
+export { auth };
 
 //  Export Firestore functions so your store can use them
 export { db, collection, addDoc, getDocs, deleteDoc, doc, updateDoc };
